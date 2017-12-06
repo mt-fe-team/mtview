@@ -2,6 +2,12 @@
 
 > A fast and smooth UI components library of Vue.js 2.0
 
+## Components
+```
+  select
+  affix
+```
+
 ## Build Setup
 
 ``` bash
