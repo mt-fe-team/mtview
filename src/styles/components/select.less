@@ -1,8 +1,10 @@
-.mt-select {
+@select-prefix-cls: ~"@{css-prefix}select";
+
+.@{select-prefix-cls} {
   position: relative;
   display: inline-block;
   width: 100%;
-  .mt-select_list {
+  &_list {
     width: 100%;
     position: absolute;
     max-height: 250px;
@@ -13,7 +15,7 @@
     z-index: 9999;
   }
 
-  .mt-select_item {
+  &_item {
     padding: 7px 10px;
     line-height: 20px;
     &:hover {
@@ -26,7 +28,7 @@
     }
   }
 
-  .mt-select_input {
+  &_input {
     width: 100%;
     padding: 3px 10px;
     padding-right: 35px;

@@ -1,8 +1,10 @@
 import Select from './components/select'
+import Affix from './components/affix'
 
 const mtview = {
   version: process.env.VERSION, // eslint-disable-line no-undef
-  'mt-select': Select
+  'mt-select': Select,
+  'mt-affix': Affix
 }
 
 const install = function (Vue, opts = {}) {
@@ -17,7 +19,8 @@ const install = function (Vue, opts = {}) {
 const API = {
   version: process.env.VERSION, // eslint-disable-line no-undef
   install,
-  Select
+  Select,
+  Affix
 }
 
 module.exports.default = module.exports = API   // eslint-disable-line no-undef

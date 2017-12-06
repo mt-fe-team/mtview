@@ -2,7 +2,8 @@
   <div style="width: 300px;">
     <mt-select
     v-model="select1"
-    :options="list"></mt-select>
+    :options="list"
+    :filters="['name']"></mt-select>
   </div>
 </template>
 
@@ -21,5 +22,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="less">
+
 </style>

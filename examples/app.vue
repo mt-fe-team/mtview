@@ -4,12 +4,13 @@
       <div class="compo-nav-l">
         <img src="../src/assets/logo.png">
         <div><router-link to="/select">Select</router-link></div>
+        <div><router-link to="/affix">Affix</router-link></div>
       </div>
 
       <div class="compo-nav-r">
         <router-view />
       </div>
-      
+
     </div>
   </div>
 
@@ -21,7 +22,7 @@ export default {
 }
 </script>
 <style lang="less">
-    @import "../src/styles/index.less";
+  @import "../src/styles/index.less";
 </style>
 <style lang="less">
 .compo-nav {

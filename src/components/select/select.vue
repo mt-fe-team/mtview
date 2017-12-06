@@ -1,10 +1,10 @@
 <template>
-  <div class="mt-select" ref="selectOptionLabel">
+  <div :class="wrapClasses" ref="selectOptionLabel">
 
     <i class="el-input__icon el-icon-loading" v-show="loading"></i>
     <i class="el-input__icon el-icon-circle-close" v-show="selectValue && !disabled" @click="clearCheck"></i>
     <input
-    class="mt-select_input"
+    :class="inputClasses"
     type="text"
     :readonly="readonly"
     :placeholder="placeholder"
@@ -13,9 +13,8 @@
     @input="handleInput"
     @click="toggleList" />
 
-    <div class="mt-select_list" v-show="showList">
-      <div class="mt-select_item"
-        :class="{'on': selectValue == item.id}"
+    <div :class="listClasses" v-show="showList">
+      <div :class="[itemClasses, {'on': selectValue == item.id}]"
         v-for="item in optionList"
         :key="item.id"
         v-show="!item.hide"
@@ -27,6 +26,8 @@
 </template>
 
 <script>
+const prefixCls = 'mt-select'
+
 export default {
   name: 'mt-select',
   data () {
@@ -54,11 +55,37 @@ export default {
         return []
       }
     },
-    placeholder: String,
-    disabled: Boolean,
-    loading: Boolean,
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
     onChange: Function,
     onClear: Function
+  },
+
+  computed: {
+    wrapClasses () {
+      return [
+        `${prefixCls}`
+      ]
+    },
+    inputClasses () {
+      return `${prefixCls}_input`
+    },
+    listClasses () {
+      return `${prefixCls}_list`
+    },
+    itemClasses () {
+      return `${prefixCls}_item`
+    }
   },
 
   watch: {
