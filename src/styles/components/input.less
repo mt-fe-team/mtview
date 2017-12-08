@@ -6,3 +6,16 @@ input:focus {
   outline: 0;
   box-shadow: 0 0 0 2px fade(@input-hover-border-color, 20%);
 }
+// Firefox
+&::-moz-placeholder {
+    color: @input-placeholder-color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+}
+// Internet Explorer 10+
+&:-ms-input-placeholder {
+    color: @input-placeholder-color;
+}
+// Safari and Chrome
+&::-webkit-input-placeholder {
+    color: @input-placeholder-color;
+}

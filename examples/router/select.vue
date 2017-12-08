@@ -3,6 +3,7 @@
     <mt-select
     v-model="select1"
     :options="list"
+    placeholder="请输入"
     :filters="['name']"></mt-select>
   </div>
 </template>

@@ -31,12 +31,13 @@
     "dist:dev": "webpack --config build/webpack.dist.dev.conf.js"
   },
   "author": "tangdada, git-lt, mzdeng",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/mt-fe-team/mtview"
   },
   "dependencies": {
-    "vue": "^2.5.2",
+    "vue": "^2.2.1",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
