@@ -78,7 +78,7 @@ export default {
       ]
     },
     inputClasses () {
-      return `${prefixCls}_input`
+      return 'mt-input'
     },
     listClasses () {
       return `${prefixCls}_list`
