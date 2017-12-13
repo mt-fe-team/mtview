@@ -2,7 +2,7 @@
   <div :class="wrapClasses" ref="selectOptionLabel">
 
     <!-- <i class="el-input__icon el-icon-loading" v-show="loading"></i> -->
-    <i class="mt-icon iconfont icon-shuaxin" v-show="loading"></i>
+    <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
     <i class="mt-icon iconfont icon-yuyueshibai" v-show="selectValue && !disabled" @click="clearCheck"></i>
     <input
     :class="inputClasses"
