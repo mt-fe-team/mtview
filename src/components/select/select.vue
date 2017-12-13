@@ -1,9 +1,12 @@
 <template>
-  <div :class="wrapClasses" ref="selectOptionLabel">
+  <div :class="wrapClasses" v-clickoutside="hideList">
 
     <!-- <i class="el-input__icon el-icon-loading" v-show="loading"></i> -->
-    <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
-    <i class="mt-icon iconfont icon-yuyueshibai" v-show="selectValue && !disabled" @click="clearCheck"></i>
+    <div>
+      <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
+      <i class="mt-icon iconfont icon-yuyueshibai" v-show="selectValue && !disabled" @click="clearCheck"></i>
+    </div>
+
     <input
     :class="inputClasses"
     type="text"
@@ -14,12 +17,12 @@
     @input="handleInput"
     @click="toggleList" />
 
-    <div :class="listClasses" v-show="showList">
-      <div :class="[itemClasses, {'on': selectValue == item.id}]"
-        v-for="item in optionList"
-        :key="item.id"
+    <div :class="listClasses" v-show="showList" v-transfer-dom>
+      <div :class="[itemClasses, {'on': selectValue == item[optionKey]}, {'focus': focusIndex === idx && selectValue != item[optionKey]}]"
+        v-for="(item, idx) in optionList"
+        :key="item[optionKey]"
         v-show="!item.hide"
-        @click="handleCheck(item.id, $event)">{{item.name}}
+        @click="handleCheck(item[optionKey], $event)">{{item[optionLabel]}}
       </div>
     </div>
 
@@ -29,20 +32,25 @@
 <script>
 const prefixCls = 'mt-select'
 
+import clickoutside from '../../directives/clickoutside'
+import TransferDom from '../../directives/transfer-dom'
+
 export default {
   name: 'mt-select',
+  directives: { clickoutside, TransferDom },
   data () {
     return {
       optionList: [],
       selectValue: undefined,
       selectOptionLabel: '',
+      focusIndex: -1,
       showList: false,
       readonly: true
     }
   },
 
   mounted () {
-    document.addEventListener('click', this.domHandleClick)
+    document.addEventListener('keydown', this.handleKeydown)
     this.readonly = !(this.filters.length > 0)
     this.setOptions(this.options)
   },
@@ -59,6 +67,14 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    optionKey: {
+      type: String,
+      default: 'id'
+    },
+    optionLabel: {
+      type: String,
+      default: 'name'
     },
     disabled: {
       type: Boolean,
@@ -89,6 +105,10 @@ export default {
     }
   },
 
+  beforeDestroy () {
+    document.removeEventListener('keydown', this.handleKeydown)
+  },
+
   watch: {
     'options' (val, oldValue) {
       this.setOptions(val)
@@ -105,11 +125,52 @@ export default {
 
   },
   methods: {
-    domHandleClick (event) {
+    hideList () {
       if (this.showList) {
         this.checkItem(this.value)
       }
       this.showList = false
+      this.focusIndex = -1
+    },
+
+    handleKeydown (e) {
+      if (this.showList) {
+        const keyCode = e.keyCode
+        // Esc slide-up
+        if (keyCode === 27) {
+          e.preventDefault()
+          this.hideList()
+        }
+        // next
+        if (keyCode === 40) {
+          e.preventDefault()
+          this.navigateOptions('next')
+        }
+        // prev
+        if (keyCode === 38) {
+          e.preventDefault()
+          this.navigateOptions('prev')
+        }
+        // enter
+        if (keyCode === 13) {
+          e.preventDefault()
+          const opt = this.optionList[this.focusIndex]
+          if (opt) {
+            this.checkItem(opt[this.optionKey])
+            this.showList = false
+          }
+        }
+      }
+    },
+
+    navigateOptions (direction) {
+      if (direction === 'next') {
+        const next = this.focusIndex + 1
+        this.focusIndex = (this.focusIndex === this.optionList.length - 1) ? 0 : next
+      } else if (direction === 'prev') {
+        const prev = this.focusIndex - 1
+        this.focusIndex = (this.focusIndex <= 0) ? this.optionList.length - 1 : prev
+      }
     },
 
     toggleList (event) {
@@ -120,7 +181,7 @@ export default {
       } else {
         this.checkItem(this.value)
       }
-      event.stopPropagation()
+      // event.stopPropagation()
     },
 
     setOptions (list = []) {
@@ -139,10 +200,10 @@ export default {
         this.selectValue = id
         this.selectOptionLabel = ''
       }
-      for (let i = 0; i < this.optionList.length; i++) {
-        if (this.optionList[i].id == id) {
-          this.selectValue = this.optionList[i].id
-          this.selectOptionLabel = this.optionList[i].name
+      for (let i = 0; i < this.options.length; i++) {
+        if (this.options[i][this.optionKey] == id) {
+          this.selectValue = this.options[i][this.optionKey]
+          this.selectOptionLabel = this.options[i][this.optionLabel]
           break
         }
       }
@@ -155,9 +216,8 @@ export default {
     filterByKeyword (input) {
       this.showList = true
       if (this.filters.length > 0) {
-        this.optionList = this.optionList.map((item) => {
-          item.hide = !this.containsKeyword(item, input)
-          return item
+        this.optionList = this.options.filter((item) => {
+          return this.containsKeyword(item, input)
         })
       }
     },
@@ -171,6 +231,7 @@ export default {
     clearCheck () {
       this.selectValue = undefined
       this.selectOptionLabel = ''
+      this.showList = false
       this.$emit('on-clear')
     }
 

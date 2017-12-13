@@ -3,7 +3,24 @@
 @-moz-keyframes rotating{ 0%{-moz-transform:rotate(0deg)} 100%{-moz-transform:rotate(360deg)} }
 @keyframes rotating{ 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
 
+@ionicons-font-family: "Ionicons";
+
+.mt-icon() {
+    display: inline-block;
+    font-family: @ionicons-font-family;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .@{css-prefix-iconfont} {
+  .mt-icon;
   &.icon-loading-m {
     -webkit-animation: rotating 1s linear infinite;
     -moz-animation: rotating 1s linear infinite;
