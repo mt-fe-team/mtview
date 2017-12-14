@@ -216,6 +216,11 @@ var install = function install(Vue) {
   });
 };
 
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
+
 var API = {
   version: Object({"NODE_ENV":"production"}).VERSION, // eslint-disable-line no-undef
   install: install,
