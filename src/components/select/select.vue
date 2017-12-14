@@ -56,8 +56,16 @@ export default {
   },
 
   props: {
-    value: [String, Number],
-    options: Array,
+    value: {
+        type: [String, Number],
+        default: ''
+    },
+    options: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    },
     filters: {
       type: Array,
       default: function () {
