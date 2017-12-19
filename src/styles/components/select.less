@@ -58,4 +58,30 @@
       color: @link-active-color;
     }
   }
+
+  &-loading {
+    .iconfont:nth-of-type(2), .iconfont:nth-of-type(3) {
+      display: none;
+    }
+  }
+
+  &-show-clear &-selection:hover .iconfont:nth-of-type(3) {
+    display: inline-block;
+  }
+
+  &-show-clear &-selection:hover .iconfont:nth-of-type(2) {
+    display: none;
+  }
+
+  .iconfont:nth-of-type(3) {
+    display: none;
+    cursor: pointer;
+  }
+
+  &-visible{
+    .iconfont:nth-of-type(2) {
+      transform: rotate(180deg);
+    }
+  }
+
 }

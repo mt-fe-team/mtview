@@ -1,21 +1,21 @@
 <template>
   <div :class="wrapClasses" v-clickoutside="hideList">
 
-    <!-- <i class="el-input__icon el-icon-loading" v-show="loading"></i> -->
-    <div>
+    <div :class="selectionCls">
       <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
-      <i class="mt-icon iconfont icon-yuyueshibai" v-show="selectValue && !disabled" @click="clearCheck"></i>
-    </div>
+      <i class="mt-icon iconfont icon-sanjiaozhaoxia"></i>
+      <i class="mt-icon iconfont icon-yuyueshibai" @click="clearCheck"></i>
 
-    <input
-    :class="inputClasses"
-    type="text"
-    :readonly="readonly"
-    :placeholder="placeholder"
-    :disabled="disabled"
-    v-model="selectOptionLabel"
-    @input="handleInput"
-    @click="toggleList" />
+      <input
+      :class="inputClasses"
+      type="text"
+      :readonly="readonly"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      v-model="selectOptionLabel"
+      @input="handleInput"
+      @click="toggleList" />
+    </div>
 
     <div :class="listClasses" v-show="showList" v-transfer-dom>
       <div :class="[itemClasses, {'on': selectValue == item[optionKey]}, {'focus': focusIndex === idx && selectValue != item[optionKey]}]"
@@ -57,8 +57,8 @@ export default {
 
   props: {
     value: {
-        type: [String, Number],
-        default: ''
+      type: [String, Number],
+      default: ''
     },
     options: {
       type: Array,
@@ -99,8 +99,16 @@ export default {
   computed: {
     wrapClasses () {
       return [
-        `${prefixCls}`
+        `${prefixCls}`,
+        {
+          [`${prefixCls}-visible`]: this.showList,
+          [`${prefixCls}-show-clear`]: this.showClear,
+          [`${prefixCls}-loading`]: this.loading
+        }
       ]
+    },
+    showClear () {
+      return this.selectValue && !this.disabled
     },
     inputClasses () {
       return 'mt-input'
@@ -110,6 +118,9 @@ export default {
     },
     itemClasses () {
       return `${prefixCls}_item`
+    },
+    selectionCls () {
+      return `${prefixCls}-selection`
     }
   },
 
