@@ -3,7 +3,7 @@
 
     <div :class="selectionCls">
       <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
-      <i class="mt-icon iconfont icon-sanjiaozhaoxia"></i>
+      <i class="mt-icon iconfont icon-arrow-down"></i>
       <i class="mt-icon iconfont icon-yuyueshibai" @click="clearCheck"></i>
 
       <input
