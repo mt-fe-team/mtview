@@ -1,7 +1,7 @@
 <template>
 <div :class="classes" v-show="show">
   <slot>
-    <div v-show="showImage"><img src="../../assets/none-data.png" /></div>
+    <div v-show="showImage"><img :src="img"/></div>
     <div :class="placeholderCls">{{placeholder}}</div>
   </slot>
 </div>
@@ -9,6 +9,7 @@
 
 <script>
 const prefixCls = 'mt-none'
+import img from '@/assets/none-data.png'
 
 export default {
   name: 'mt-none',
@@ -28,6 +29,7 @@ export default {
   },
   data () {
     return {
+      img: img
     }
   },
   computed: {
