@@ -988,7 +988,7 @@ exports.default = _none2.default;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_none_vue__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_none_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_none_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_763dcf6b_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_none_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_43cd8676_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_none_vue__ = __webpack_require__(17);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -1004,7 +1004,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_none_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_763dcf6b_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_none_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_43cd8676_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_none_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1025,11 +1025,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _noneData = __webpack_require__(17);
-
-var _noneData2 = _interopRequireDefault(_noneData);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 //
 //
@@ -1042,6 +1038,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 
 var prefixCls = 'mt-none';
+
 exports.default = {
   name: 'mt-none',
   props: {
@@ -1053,15 +1050,17 @@ exports.default = {
       type: Boolean,
       default: true
     },
+    imageSize: {
+      type: String,
+      default: ''
+    },
     show: {
       type: Boolean,
       default: false
     }
   },
   data: function data() {
-    return {
-      img: _noneData2.default
-    };
+    return {};
   },
 
   computed: {
@@ -1070,6 +1069,11 @@ exports.default = {
     },
     placeholderCls: function placeholderCls() {
       return prefixCls + '-placeholder';
+    },
+    imgCls: function imgCls() {
+      var _ref;
+
+      return [prefixCls + '-img', (_ref = {}, _defineProperty(_ref, prefixCls + '-img-large', this.imageSize == 'large'), _defineProperty(_ref, prefixCls + '-img-small', this.imageSize == 'small'), _ref)];
     }
   },
   mounted: function mounted() {},
@@ -1080,16 +1084,10 @@ exports.default = {
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "static/img/none-data.b6cede6.png";
-
-/***/ }),
-/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.show),expression:"show"}],class:_vm.classes},[_vm._t("default",[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showImage),expression:"showImage"}]},[_c('img',{attrs:{"src":_vm.img}})]),_vm._v(" "),_c('div',{class:_vm.placeholderCls},[_vm._v(_vm._s(_vm.placeholder))])])],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.show),expression:"show"}],class:_vm.classes},[_vm._t("default",[_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showImage),expression:"showImage"}],class:_vm.imgCls},[_c('i',{staticClass:"mt-icon iconfont icon-none2"})]),_vm._v(" "),_c('div',{class:_vm.placeholderCls},[_vm._v(_vm._s(_vm.placeholder))])])],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

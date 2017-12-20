@@ -1,7 +1,7 @@
 <template>
 <div :class="classes" v-show="show">
   <slot>
-    <div v-show="showImage"><img :src="img"/></div>
+    <div v-show="showImage" :class="imgCls"><i class="mt-icon iconfont icon-none2"></i></div>
     <div :class="placeholderCls">{{placeholder}}</div>
   </slot>
 </div>
@@ -9,7 +9,6 @@
 
 <script>
 const prefixCls = 'mt-none'
-import img from '@/assets/none-data.png'
 
 export default {
   name: 'mt-none',
@@ -22,6 +21,10 @@ export default {
       type: Boolean,
       default: true
     },
+    imageSize: {
+      type: String,
+      default: ''
+    },
     show: {
       type: Boolean,
       default: false
@@ -29,7 +32,6 @@ export default {
   },
   data () {
     return {
-      img: img
     }
   },
   computed: {
@@ -40,6 +42,14 @@ export default {
     },
     placeholderCls () {
       return `${prefixCls}-placeholder`
+    },
+    imgCls () {
+      return [`${prefixCls}-img`,
+        {
+          [`${prefixCls}-img-large`]: this.imageSize == 'large',
+          [`${prefixCls}-img-small`]: this.imageSize == 'small'
+        }
+      ]
     }
   },
   mounted () {
