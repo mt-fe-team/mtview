@@ -1,7 +1,10 @@
 
-<a href="https://mtview.mytijian.cn">
-    <img width="200" src="http://mytijian-img.oss-cn-hangzhou.aliyuncs.com/official-web/mtview.png">
-</a>
+<p align="center">
+  <a href="https://mtview.mytijian.cn">
+      <img width="200" src="http://mytijian-img.oss-cn-hangzhou.aliyuncs.com/official-web/mtview.png">
+  </a>
+</p>
+
 # mt-view
 
 > A fast and smooth UI components library of Vue.js 2.0
