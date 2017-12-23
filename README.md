@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://mtview.mytijian.cn">
+  <a href="http://mtview.mytijian.cn">
       <img width="200" src="https://mytijian-img.oss-cn-hangzhou.aliyuncs.com/official-web/mtview.png">
   </a>
 </p>
