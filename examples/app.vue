@@ -6,6 +6,7 @@
         <div><router-link to="/select">Select</router-link></div>
         <div><router-link to="/affix">Affix</router-link></div>
         <div><router-link to="/none">None</router-link></div>
+        <div><router-link to="/group">Group</router-link></div>
       </div>
 
       <div class="compo-nav-r">

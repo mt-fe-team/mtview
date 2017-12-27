@@ -1,0 +1,23 @@
+@group-cell-prefix-cls: ~"@{css-prefix}group-cell";
+@group-prefix-cls: ~"@{css-prefix}group";
+
+.@{group-prefix-cls} {
+  padding: 5px 10px;
+  &-border {
+    border: 1px solid @border-color-base;
+    border-radius: @border-radius-base;
+  }
+  &:not(&-horizontal) > .@{group-cell-prefix-cls} {
+    padding: 5px 10px;
+    &-border:not(:last-child) {
+      border-bottom: 1px solid @border-color-base;
+    }
+  }
+  &-horizontal .@{group-cell-prefix-cls} {
+    display: inline-block;
+    padding: 5px 10px;
+    &-border:not(:last-child) {
+      border-right: 1px solid @border-color-base;
+    }
+  }
+}

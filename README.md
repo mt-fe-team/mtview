@@ -14,6 +14,7 @@
   select
   affix
   none
+  group
 ```
 
 ## Build Setup

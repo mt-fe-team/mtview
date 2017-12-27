@@ -1,12 +1,15 @@
 import Select from './components/select'
 import Affix from './components/affix'
 import None from './components/none'
+import Group from './components/group'
 
 const mtview = {
   version: process.env.VERSION, // eslint-disable-line no-undef
   'mt-select': Select,
   'mt-affix': Affix,
-  'mt-none': None
+  'mt-none': None,
+  'mt-group': Group,
+  'mt-cell': Group.Cell
 }
 
 const install = function (Vue, opts = {}) {
@@ -28,7 +31,8 @@ const API = {
   install,
   Select,
   Affix,
-  None
+  None,
+  Group
 }
 
 module.exports.default = module.exports = API   // eslint-disable-line no-undef
