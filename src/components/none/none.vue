@@ -21,7 +21,7 @@ export default {
       type: Boolean,
       default: true
     },
-    imageSize: {
+    size: {
       type: String,
       default: ''
     },
@@ -46,8 +46,8 @@ export default {
     imgCls () {
       return [`${prefixCls}-img`,
         {
-          [`${prefixCls}-img-large`]: this.imageSize == 'large',
-          [`${prefixCls}-img-small`]: this.imageSize == 'small'
+          [`${prefixCls}-img-large`]: this.size == 'large',
+          [`${prefixCls}-img-small`]: this.size == 'small'
         }
       ]
     }
