@@ -1,6 +1,6 @@
 <template>
   <div class="mt-group-demo">
-    <mt-group :horizontal=true>
+    <mt-group :horizontal=true type="warning">
       <div slot="title">
         <p>显示多行信息</p>
         <p><i>可以自定义样式</i></p>

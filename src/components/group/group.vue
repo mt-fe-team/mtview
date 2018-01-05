@@ -26,6 +26,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    type: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -38,6 +42,7 @@ export default {
         `${prefixCls}`,
         {
           [`${prefixCls}-border`]: this.showBorder,
+          [`${prefixCls}-border-${this.type}`]: this.showBorder && this.type,
           [`${prefixCls}-horizontal`]: this.horizontal
         }
       ]
