@@ -15,6 +15,7 @@
   affix
   none
   group
+  checkbox
 ```
 
 ## Build Setup

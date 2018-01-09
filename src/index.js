@@ -2,6 +2,7 @@ import Select from './components/select'
 import Affix from './components/affix'
 import None from './components/none'
 import Group from './components/group'
+import Checkbox from './components/checkbox'
 
 const mtview = {
   version: process.env.VERSION, // eslint-disable-line no-undef
@@ -9,7 +10,8 @@ const mtview = {
   'mt-affix': Affix,
   'mt-none': None,
   'mt-group': Group,
-  'mt-cell': Group.Cell
+  'mt-cell': Group.Cell,
+  'mt-checkbox': Checkbox
 }
 
 const install = function (Vue, opts = {}) {
@@ -32,7 +34,8 @@ const API = {
   Select,
   Affix,
   None,
-  Group
+  Group,
+  Checkbox
 }
 
 module.exports.default = module.exports = API   // eslint-disable-line no-undef

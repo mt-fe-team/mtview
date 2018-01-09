@@ -4,6 +4,7 @@ import Select from '../router/select'
 import Affix from '../router/affix'
 import None from '../router/none'
 import Group from '../router/group'
+import Checkbox from '../router/checkbox'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/group',
       name: 'Group',
       component: Group
+    },
+    {
+      path: '/checkbox',
+      name: 'Checkbox',
+      component: Checkbox
     }
   ]
 })

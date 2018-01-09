@@ -205,6 +205,10 @@ var _group = __webpack_require__(18);
 
 var _group2 = _interopRequireDefault(_group);
 
+var _checkbox = __webpack_require__(25);
+
+var _checkbox2 = _interopRequireDefault(_checkbox);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mtview = {
@@ -213,7 +217,8 @@ var mtview = {
   'mt-affix': _affix2.default,
   'mt-none': _none2.default,
   'mt-group': _group2.default,
-  'mt-cell': _group2.default.Cell
+  'mt-cell': _group2.default.Cell,
+  'mt-checkbox': _checkbox2.default
 };
 
 var install = function install(Vue) {
@@ -238,7 +243,8 @@ var API = {
   Select: _select2.default,
   Affix: _affix2.default,
   None: _none2.default,
-  Group: _group2.default
+  Group: _group2.default,
+  Checkbox: _checkbox2.default
 };
 
 module.exports.default = module.exports = API; // eslint-disable-line no-undef
@@ -1336,6 +1342,182 @@ exports.default = {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("title",[_c('strong',[_vm._v(_vm._s(_vm.title))])]),_vm._v(" "),_c('div',{class:_vm.classes},[_vm._t("default")],2)],2)}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _checkbox = __webpack_require__(26);
+
+var _checkbox2 = _interopRequireDefault(_checkbox);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _checkbox2.default;
+
+/***/ }),
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05b879f4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_checkbox_vue__ = __webpack_require__(28);
+var normalizeComponent = __webpack_require__(0)
+/* script */
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05b879f4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_checkbox_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var prefixCls = 'mt-checkbox';
+
+exports.default = {
+  name: 'Checkbox',
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: [String, Number, Boolean],
+      default: false
+    },
+    trueValue: {
+      type: [String, Number, Boolean],
+      default: true
+    },
+    falseValue: {
+      type: [String, Number, Boolean],
+      default: false
+    },
+    indeterminate: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      default: ''
+    },
+    name: {
+      type: String
+    },
+    type: {
+      type: String,
+      default: 'primary'
+    }
+  },
+  data: function data() {
+    return {
+      currentValue: this.value
+    };
+  },
+
+  computed: {
+    wrapClasses: function wrapClasses() {
+      var _ref;
+
+      return [prefixCls + '-wrapper', (_ref = {}, _defineProperty(_ref, prefixCls + '-wrapper-checked', this.currentValue), _defineProperty(_ref, prefixCls + '-wrapper-disabled', this.disabled), _defineProperty(_ref, prefixCls + '-' + this.size, !!this.size), _ref)];
+    },
+    checkboxClasses: function checkboxClasses() {
+      var _ref2;
+
+      return ['' + prefixCls, (_ref2 = {}, _defineProperty(_ref2, prefixCls + '-checked', this.currentValue), _defineProperty(_ref2, prefixCls + '-' + this.type, this.type), _defineProperty(_ref2, prefixCls + '-disabled', this.disabled), _defineProperty(_ref2, prefixCls + '-indeterminate', this.indeterminate), _ref2)];
+    },
+    innerClasses: function innerClasses() {
+      return prefixCls + '-inner';
+    },
+    inputClasses: function inputClasses() {
+      return prefixCls + '-input';
+    }
+  },
+  mounted: function mounted() {
+    this.updateModel();
+  },
+
+  methods: {
+    handleCheck: function handleCheck(e) {
+      this.$emit('on-check');
+      e.stopPropagation();
+    },
+    updateModel: function updateModel() {
+      this.currentValue = this.value === this.trueValue;
+    }
+  },
+  watch: {
+    value: function value(val) {
+      if (val !== this.trueValue && val !== this.falseValue) {
+        throw new Error('Value should be trueValue or falseValue.');
+      }
+      this.updateModel();
+    }
+  }
+};
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('label',{class:_vm.wrapClasses},[_c('span',{class:_vm.checkboxClasses},[_c('span',{class:_vm.innerClasses}),_vm._v(" "),_c('input',{class:_vm.inputClasses,attrs:{"type":"checkbox","disabled":_vm.disabled,"name":_vm.name},domProps:{"checked":_vm.currentValue},on:{"click":function($event){_vm.handleCheck($event)}}})]),_vm._v(" "),_vm._t("default")],2)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
