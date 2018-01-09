@@ -17,13 +17,13 @@
 const prefixCls = 'mt-checkbox'
 
 export default {
-  name: 'Checkbox',
+  name: 'mt-checkbox',
   props: {
     disabled: {
       type: Boolean,
       default: false
     },
-    value: {
+    checked: {
       type: [String, Number, Boolean],
       default: false
     },
@@ -94,11 +94,11 @@ export default {
       e.stopPropagation()
     },
     updateModel () {
-      this.currentValue = this.value === this.trueValue
+      this.currentValue = this.checked === this.trueValue
     }
   },
   watch: {
-    value (val) {
+    checked (val) {
       if (val !== this.trueValue && val !== this.falseValue) {
         throw new Error('Value should be trueValue or falseValue.')
       }

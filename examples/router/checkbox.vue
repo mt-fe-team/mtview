@@ -2,7 +2,7 @@
   <div>
     <div style="width: 300px;">
       <mt-checkbox
-      v-model="list.indexOf(3) > -1"
+      :checked="list.indexOf(select) > -1"
       @on-check="handleCheck(3)"
       type="warning">check</mt-checkbox>
     </div>
@@ -15,7 +15,7 @@ export default {
   name: 'mtCheckboxDemo',
   data () {
     return {
-      select1: false,
+      select: 3,
       list: [1, 3, 4]
     }
   },
@@ -28,7 +28,6 @@ export default {
       } else {
         this.list.push(val)
       }
-
     }
   }
 }

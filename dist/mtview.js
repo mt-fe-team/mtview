@@ -1373,7 +1373,7 @@ exports.default = _checkbox2.default;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05b879f4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_checkbox_vue__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_15d66bb0_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_checkbox_vue__ = __webpack_require__(28);
 var normalizeComponent = __webpack_require__(0)
 /* script */
 
@@ -1389,7 +1389,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_checkbox_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_05b879f4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_checkbox_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_15d66bb0_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_checkbox_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1431,13 +1431,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var prefixCls = 'mt-checkbox';
 
 exports.default = {
-  name: 'Checkbox',
+  name: 'mt-checkbox',
   props: {
     disabled: {
       type: Boolean,
       default: false
     },
-    value: {
+    checked: {
       type: [String, Number, Boolean],
       default: false
     },
@@ -1499,11 +1499,11 @@ exports.default = {
       e.stopPropagation();
     },
     updateModel: function updateModel() {
-      this.currentValue = this.value === this.trueValue;
+      this.currentValue = this.checked === this.trueValue;
     }
   },
   watch: {
-    value: function value(val) {
+    checked: function checked(val) {
       if (val !== this.trueValue && val !== this.falseValue) {
         throw new Error('Value should be trueValue or falseValue.');
       }
