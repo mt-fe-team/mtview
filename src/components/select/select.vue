@@ -251,7 +251,9 @@ export default {
       this.selectValue = undefined
       this.selectOptionLabel = ''
       this.showList = false
-      this.$emit('on-clear')
+      setTimeout(() => {
+        this.$emit('on-clear')
+      })
     }
 
   }
