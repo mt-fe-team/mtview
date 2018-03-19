@@ -34,8 +34,11 @@ export default {
     },
 
     handleChange() {
-      console.log('change select')
     }
+  },
+
+  mounted() {
+    this.select1 = 23;
   }
 
 }

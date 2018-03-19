@@ -139,6 +139,7 @@ export default {
 
     'value' (val, oldValue) {
       this.checkItem(val)
+      if (val == oldValue) return
       this.$emit('on-change', val)
     },
 
