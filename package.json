@@ -1,6 +1,6 @@
 {
   "name": "mtview",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "mtView",
   "description": "A fast and smooth UI components library of Vue.js 2.0",
   "keywords": [
@@ -24,7 +24,6 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-
     "build": "npm run build:js && npm run build:css && npm run dist:dev",
     "build:js": "node build/build.js",
     "build:css": "gulp --gulpfile build/build-style.js",
@@ -101,7 +100,8 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.4"
   },
   "engines": {
     "node": ">= 4.0.0",

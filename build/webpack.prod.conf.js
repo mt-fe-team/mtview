@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.conf.js');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const uglify = require('uglifyjs-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
 
@@ -32,11 +33,7 @@ module.exports = merge(webpackBaseConfig, {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
+        new uglify(), 
         // extract css into its own file
         new ExtractTextPlugin({
           filename: 'mtview.css',

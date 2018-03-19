@@ -92,6 +92,10 @@ export default {
       type: Boolean,
       default: false
     },
+    clearable: {
+      type: Boolean,
+      default: true
+    },
     onChange: Function,
     onClear: Function
   },
@@ -108,7 +112,7 @@ export default {
       ]
     },
     showClear () {
-      return this.selectValue && !this.disabled
+      return this.selectValue && !this.disabled && this.clearable
     },
     inputClasses () {
       return 'mt-input'

@@ -3,16 +3,13 @@
 import Vue from 'vue'
 import App from './app'
 import router from './router'
-import MtUi from '../src/index';
+import mtView from '../src/index';
 
 Vue.config.productionTip = false
 
-Vue.use(MtUi);
+Vue.use(mtView);
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
-})
+const app = new Vue({
+  router: router,
+  render: h => h(App)
+}).$mount('#app');

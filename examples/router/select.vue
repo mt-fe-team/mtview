@@ -5,7 +5,9 @@
       v-model="select1"
       :options="list"
       placeholder="请输入"
+      @on-change="handleChange()"
       @on-clear="testClear"
+      :clearable="true"
       :filters="['name1']" />
     </div>
   </div>
@@ -29,6 +31,10 @@ export default {
   methods: {
     testClear () {
       this.select1;
+    },
+
+    handleChange() {
+      console.log('change select')
     }
   }
 

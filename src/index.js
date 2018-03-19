@@ -38,4 +38,4 @@ const API = {
   Checkbox
 }
 
-module.exports.default = module.exports = API   // eslint-disable-line no-undef
+export default API   // eslint-disable-line no-undef
