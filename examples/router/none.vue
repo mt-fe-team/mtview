@@ -1,6 +1,6 @@
 <template>
   <div class="mt-none-demo">
-    <div v-for="n in list">{{n}}</div>
+    <div v-for="(n, idx) in list" :key="idx">{{n}}</div>
     <mt-none :show="list.length == 0" placeholder="抱歉，未找到数据" image-size="large" />
   </div>
 </template>

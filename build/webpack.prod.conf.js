@@ -33,8 +33,8 @@ module.exports = merge(webpackBaseConfig, {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
-        new uglify(), 
-        // extract css into its own file
+        new webpack.optimize.UglifyJsPlugin(),
+        // // extract css into its own file
         new ExtractTextPlugin({
           filename: 'mtview.css',
           // set the following option to `true` if you want to extract CSS from
