@@ -3,10 +3,11 @@
 
     <div :class="selectionCls">
       <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
-      <i class="mt-icon iconfont icon-arrow-down"></i>
+      <i class="mt-icon iconfont icon-arrow-down" @click="toggleList"></i>
       <i class="mt-icon iconfont icon-yuyueshibai" @click="clearCheck"></i>
 
       <input
+      ref="realSelectInput"
       :class="inputClasses"
       type="text"
       :readonly="readonly"
@@ -57,8 +58,7 @@ export default {
 
   props: {
     value: {
-      type: [String, Number],
-      default: ''
+      type: [String, Number]
     },
     options: {
       type: Array,
@@ -139,12 +139,11 @@ export default {
 
     'value' (val, oldValue) {
       this.checkItem(val)
-      if (val == oldValue) return
       this.$emit('on-change', val)
     },
 
     'selectValue' (val, oldValue) {
-      this.$emit('input', (val ? (val + '') : ''))
+      this.$emit('input', val)
     }
 
   },
@@ -197,15 +196,14 @@ export default {
       }
     },
 
-    toggleList (event) {
+    toggleList () {
       this.showList = !this.showList
       if (this.showList && !this.readonly) {
-        event.target.select()
+        this.$refs.realSelectInput.select()
         this.filterByKeyword('')
       } else {
         this.checkItem(this.value)
       }
-      // event.stopPropagation()
     },
 
     setOptions (list = []) {
@@ -225,7 +223,7 @@ export default {
         this.selectOptionLabel = ''
       }
       for (let i = 0; i < this.options.length; i++) {
-        if (this.options[i][this.optionKey] == id) {
+        if (this.options[i][this.optionKey] === id) {
           this.selectValue = this.options[i][this.optionKey]
           this.selectOptionLabel = this.options[i][this.optionLabel]
           break

@@ -39,6 +39,12 @@ export default {
 
   mounted() {
     this.select1 = 23;
+  },
+
+  watch: {
+    select1() {
+      console.log('select value changed')
+    }
   }
 
 }
