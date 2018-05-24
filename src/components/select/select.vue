@@ -115,7 +115,7 @@ export default {
       return this.selectValue && !this.disabled && this.clearable
     },
     inputClasses () {
-      return 'mt-input'
+      return `${prefixCls}_input`
     },
     listClasses () {
       return `${prefixCls}_list`
