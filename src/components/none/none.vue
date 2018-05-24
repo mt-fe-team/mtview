@@ -1,7 +1,7 @@
 <template>
 <div :class="classes" v-show="show">
   <slot>
-    <div v-show="showImage" :class="imgCls"><i class="mt-icon iconfont icon-none2"></i></div>
+    <div v-show="showImage" :class="imgCls"><i class="mt-icon iconfont i-none"></i></div>
     <div :class="placeholderCls">{{placeholder}}</div>
   </slot>
 </div>

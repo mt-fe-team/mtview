@@ -2,9 +2,9 @@
   <div :class="wrapClasses" v-clickoutside="hideList">
 
     <div :class="selectionCls">
-      <i class="mt-icon iconfont icon-loading-m" v-show="loading"></i>
-      <i class="mt-icon iconfont icon-arrow-down" @click="toggleList"></i>
-      <i class="mt-icon iconfont icon-yuyueshibai" @click="clearCheck"></i>
+      <i class="mt-icon iconfont i-loading" v-show="loading"></i>
+      <i class="mt-icon iconfont i-arrow-down" @click="toggleList"></i>
+      <i class="mt-icon iconfont i-delete" @click="clearCheck"></i>
 
       <input
       ref="realSelectInput"
