@@ -3,7 +3,7 @@
     <div style="width: 300px;">
       <mt-checkbox
       :checked="list.indexOf(select) > -1"
-      @on-check="handleCheck(3)"
+      @on-check="handleCheck($event, 3)"
       type="warning">check</mt-checkbox>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
   },
 
   methods: {
-    handleCheck (val) {
+    handleCheck (e, val) {
       let idx = this.list.indexOf(val)
       if (idx > -1) {
         this.list.splice(idx, 1)

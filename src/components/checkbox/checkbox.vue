@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     handleCheck (e) {
-      this.$emit('on-check')
+      this.$emit('on-check', e)
       e.stopPropagation()
     },
     updateModel () {
