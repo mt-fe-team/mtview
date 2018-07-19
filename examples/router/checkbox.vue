@@ -4,7 +4,7 @@
       <mt-checkbox
       :checked="list.indexOf(select) > -1"
       @on-check="handleCheck($event, 3)"
-      type="warning">check</mt-checkbox>
+      type="default">check</mt-checkbox>
     </div>
   </div>
 
