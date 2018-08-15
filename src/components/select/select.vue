@@ -197,6 +197,7 @@ export default {
     },
 
     toggleList () {
+      if (this.disabled) return
       this.showList = !this.showList
       if (this.showList && !this.readonly) {
         this.$refs.realSelectInput.select()
