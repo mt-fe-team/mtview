@@ -247,7 +247,7 @@ export default {
 
     containsKeyword (item, input) {
       return this.filters.some((keyword) => {
-        return item[keyword] && item[keyword].toUpperCase().indexOf(input.toUpperCase()) > -1
+        return item[keyword] && (item[keyword] + '').toUpperCase().indexOf(input.toUpperCase()) > -1
       })
     },
 
